@@ -6,15 +6,27 @@
   "type": "module",
   "scripts": {
     "start": "node --env-file .env --bin/www.js",
-    "dev": "node --env-file .env --watch bin/www.js",
+    "dev": "node --watch bin/www.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "morgan": "^1.10.0",
     "pg": "^8.13.1"
-  }
+  },
+  "bin": {
+    "week-5-hackathon-sgs_room_10": "bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolOfCode/week-5-hackathon-sgs_room_10.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/week-5-hackathon-sgs_room_10/issues"
+  },
+  "homepage": "https://github.com/SchoolOfCode/week-5-hackathon-sgs_room_10#readme"
 }
