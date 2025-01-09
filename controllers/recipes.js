@@ -48,13 +48,14 @@ import {
   export async function updateRecipeById(req, res) {
     try {
       const id = req.params.id;
-      const { recipe_name, ingredients, method } = req.body;
-      if (!recipe_name || !ingredients || !method) {
+      const { title, ingredients, directions, link, source, ner, site } = req.body;
+      if (!title || !ingredients || !directions) {
         return res
           .status(400)
           .json({ status: "fail", message: "Missing required fields" });
       }
-      const recipe = await modifyRecipeById(id, recipe_name, ingredients, method);
+      const recipe = await modifyRecipeById(id, title, ingredients, directions,link, source, ner, site);
+      console.log(recipe);
       if (!recipe) {
         return res
           .status(404)

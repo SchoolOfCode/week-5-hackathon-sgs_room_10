@@ -15,6 +15,9 @@ export async function insertRecipe(recipe_name, ingredients, method) {
     return insertRecipe.rows[0];
 }
 
-export async function modifyRecipeById(id, first_name, last_name) {}
+export async function modifyRecipeById(id, recipe_name, ingredients, directions,link, source, ner, site) {
+     const modifyRecipe = await pool.query("UPDATE recipes SET title = $1, ingredients = $2, directions = $3, link = $4, source = $5, ner = $6, site = $7 WHERE id = $8 RETURNING *;", [recipe_name, ingredients, directions, link, source, ner, site,id]);
+     return modifyRecipe.rows[0];
+}
 
 export async function removeRecipeById(id) {}

@@ -1,8 +1,8 @@
 import express from "express";
-import { getRecipeById, getRecipes, 
-    // getRecipeById, 
+import { getRecipes,
+    getRecipeById, 
     // createRecipe,
-    // updateRecipeById, 
+    updateRecipeById, 
     // deleteRecipeById, 
     } from "../controllers/recipes.js";
 import app from "../app.js";
@@ -11,11 +11,6 @@ const router = express.Router();
 
 router.get("/", getRecipes);
 router.get("/:id", getRecipeById);
+router.patch("/:id", updateRecipeById);
 
 export default router;
-
-
-
-
-
-    
