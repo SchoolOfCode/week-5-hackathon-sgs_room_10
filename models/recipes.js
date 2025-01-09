@@ -10,8 +10,11 @@ export async function fetchRecipeById(id) {
      return fetchRecipeID.rows[0] || null;
 }
 
-export async function insertRecipe(recipe_name, ingredients, method) {
-    const insertRecipe = await pool.query("INSERT INTO recipes (recipe_name, ingredients, method) VALUES ($1, $2, $3);" [recipe_name, ingredients, method]);
+export async function insertRecipe(title, ingredients, directions) {
+    const insertRecipe = await pool.query(
+        "INSERT INTO recipes (title, ingredients, directions) VALUES ($1, $2, $3) RETURNING *;", 
+        [title, ingredients, directions]
+    );
     return insertRecipe.rows[0];
 }
 
