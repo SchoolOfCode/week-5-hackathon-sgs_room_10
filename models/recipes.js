@@ -6,7 +6,7 @@ return all_recipes.rows;
 }
 
 export async function fetchRecipeById(id) {
-     const fetchRecipeID = await pool.query("SELECT * FROM recipes WHERE id = $1;" [id]);
+     const fetchRecipeID = await pool.query("SELECT * FROM recipes WHERE id = $1;", [id]);
      return fetchRecipeID.rows[0] || null;
 }
 

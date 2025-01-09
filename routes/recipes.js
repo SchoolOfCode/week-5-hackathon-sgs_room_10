@@ -1,5 +1,5 @@
 import express from "express";
-import { getRecipes, 
+import { getRecipeById, getRecipes, 
     // getRecipeById, 
     // createRecipe,
     // updateRecipeById, 
@@ -10,6 +10,7 @@ import app from "../app.js";
 const router = express.Router();
 
 router.get("/", getRecipes);
+router.get("/:id", getRecipeById);
 
 export default router;
 
