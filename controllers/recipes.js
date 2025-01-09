@@ -24,7 +24,7 @@ import {
           .status(404)
           .json({ status: "fail", message: "Recipe not found" });
       }
-      res.status(200).json({ status: "success", data: recipe });
+      res.status(200).json({ status: "success", data: recipe});
     } catch (error) {
       res.status(500).json({ status: "error", message: error.message });
     }
