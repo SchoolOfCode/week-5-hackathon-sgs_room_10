@@ -32,13 +32,13 @@ import {
   
   export async function createRecipe(req, res) {
     try {
-      const { recipe_name, ingredients, method } = req.body;
-      if (!recipe_name || !ingredients || !method) {
+      const { title, ingredients, directions } = req.body;
+      if (!title || !ingredients || !directions) {
         return res
           .status(400)
           .json({ status: "fail", message: "Missing required fields" });
       }
-      const recipe = await insertRecipe(recipe_name, ingredients, method);
+      const recipe = await insertRecipe(title, ingredients, directions);
       res.status(201).json({ status: "success", data: recipe });
     } catch (error) {
       res.status(500).json({ status: "error", message: error.message });
