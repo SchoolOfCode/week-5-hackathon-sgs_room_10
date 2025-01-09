@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const apple = 1;
+
 //import authorRouter from "./routes/authors.js";
 //import bookRouter from "./routes/books.js";
 
