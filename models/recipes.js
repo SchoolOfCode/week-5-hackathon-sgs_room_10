@@ -26,4 +26,7 @@ export async function modifyRecipeById(id, recipe_name, ingredients, directions,
      return modifyRecipe.rows[0];
 }
 
-export async function removeRecipeById(id) {}
+export async function removeRecipeById(id) {
+     const removeRecipe = await pool.query("DELETE FROM recipes WHERE id = $1", [id]);
+     return removeRecipe.rows[0];
+}

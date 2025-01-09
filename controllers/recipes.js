@@ -76,9 +76,8 @@ import {
           .status(404)
           .json({ status: "fail", message: "Recipe not found" });
       }
-      res.status(204).send(recipe); // 204 No Content
+      res.status(204).json({status: "success", data: recipe}); // 204 No Content
     } catch (error) {
       res.status(500).json({ status: "error", message: error.message });
     }
   }
-  

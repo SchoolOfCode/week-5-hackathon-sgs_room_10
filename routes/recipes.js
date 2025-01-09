@@ -3,7 +3,7 @@ import { getRecipes,
     getRecipeById, 
     createRecipe,
     updateRecipeById, 
-    // deleteRecipeById, 
+    deleteRecipeById, 
     } from "../controllers/recipes.js";
 import app from "../app.js";
 
@@ -13,5 +13,6 @@ router.get("/", getRecipes);
 router.get("/:id", getRecipeById);
 router.post("/", createRecipe);
 router.patch("/:id", updateRecipeById);
+router.delete("/:id", deleteRecipeById);
 
 export default router;
