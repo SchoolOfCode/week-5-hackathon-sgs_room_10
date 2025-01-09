@@ -18,6 +18,8 @@ export async function insertRecipe(title, ingredients, directions) {
     return insertRecipe.rows[0];
 }
 
+let apple = 1;
+
 
 export async function modifyRecipeById(id, first_name, last_name) {}
 
