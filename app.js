@@ -1,14 +1,11 @@
 // Import the required modules
 import express from "express";
 import morgan from "morgan";
-
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const apple = 1;
-
-//import authorRouter from "./routes/authors.js";
+import recipeRouter from "./routes/recipes.js";
 //import bookRouter from "./routes/books.js";
 
 // Initialize the express app
@@ -19,7 +16,7 @@ app.use(morgan("dev")); // Morgan is used for logging HTTP requests to the conso
 app.use(express.json()); // express.json() middleware is used to parse incoming JSON requests
 
 // Use sub-routers
-//app.use("/authors", authorRouter);
+app.use("/recipes", recipeRouter);
 //app.use("/books", bookRouter);
 
 export default app;

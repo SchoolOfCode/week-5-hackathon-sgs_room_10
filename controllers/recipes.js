@@ -9,7 +9,7 @@ import {
   export async function getRecipes(req, res) {
     try {
       const allRecipes = await fetchAllRecipes();
-      res.status(200).json({ status: "success", data: recipes });
+      res.status(200).json({ status: "success", data: allRecipes });
     } catch (error) {
       res.status(500).json({ status: "error", message: error.message });
     }

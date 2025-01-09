@@ -15,6 +15,6 @@ export async function insertRecipe(recipe_name, ingredients, method) {
     return insertRecipe.rows[0];
 }
 
-export async function modifyAuthorById(id, first_name, last_name) {}
+export async function modifyRecipeById(id, first_name, last_name) {}
 
-export async function removeAuthorById(id) {}
+export async function removeRecipeById(id) {}
