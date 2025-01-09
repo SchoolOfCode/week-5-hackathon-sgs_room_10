@@ -1,0 +1,20 @@
+{
+  "name": "week-5-hackathon-sgs_room_10",
+  "version": "1.0.0",
+  "description": "Milestones Plan and design your database schema (You should have a minimum of 2 tables that are linked with a primary and foreign key)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file .env --bin/www.js",
+    "dev": "node --env-file .env --watch bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1"
+  }
+}
