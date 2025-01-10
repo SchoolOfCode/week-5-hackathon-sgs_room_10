@@ -10,10 +10,10 @@ export async function fetchRecipeById(id) {
      return fetchRecipeID.rows[0] || null;
 }
 
-export async function insertRecipe(title, ingredients, directions) {
+export async function insertRecipe(title, ingredients, directions, link, source, ner, site, cuisine_id) {
     const insertRecipe = await pool.query(
-        "INSERT INTO recipes (title, ingredients, directions) VALUES ($1, $2, $3) RETURNING *;", 
-        [title, ingredients, directions]
+        "INSERT INTO recipes (title, ingredients, directions, link, source, ner, site, cuisine_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;", 
+        [title, ingredients, directions, link, source, ner, site, cuisine_id]
     );
     return insertRecipe.rows[0];
 }
