@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import recipeRouter from "./routes/recipes.js";
-//import bookRouter from "./routes/books.js";
+import cuisineRouter from "./routes/cuisines.js";
 
 // Initialize the express app
 const app = express();
@@ -17,6 +17,6 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 
 // Use sub-routers
 app.use("/recipes", recipeRouter);
-//app.use("/books", bookRouter);
+app.use("/cuisines", cuisineRouter);
 
 export default app;
