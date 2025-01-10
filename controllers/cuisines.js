@@ -65,12 +65,13 @@ import {
       try {
       const id = req.params.id;
       const deleted = await removeCuisineId(id);
+      console.log(`Deleted cuisine: ${JSON.stringify(deleted)}`);
       if(!deleted) {
         res.status(404).json({status: "fail",message: "Cuisine not found"})
       }
+      console.log("success");
       res.status(204).json({status:"success", data: deleted})
-  } catch(error) {
-    res.status(500).json({status:"fail",message: error.message})
-  }
-
+    } catch(error) {
+      res.status(500).json({status:"fail",message: error.message})
+    }
   }

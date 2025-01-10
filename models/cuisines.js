@@ -22,5 +22,5 @@ export async function updateSpecificCuisine(id, cuisine) {
 
 export async function removeCuisineId(id) {
     const remove_cuisine = await pool.query("DELETE FROM cuisines WHERE id = $1 RETURNING *;",[id]);
-    return remove_cuisine
+    return remove_cuisine.rows[0]
 }
