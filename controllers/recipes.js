@@ -4,6 +4,7 @@ import {
     insertRecipe,
     modifyRecipeById,
     removeRecipeById,
+    fetchRecipeAndCuisineById
   } from "../models/recipes.js";
   
   export async function getRecipes(req, res) {
@@ -81,3 +82,24 @@ import {
       res.status(500).json({ status: "error", message: error.message });
     }
   }
+
+  //PLAN
+  //An async function that will fetchRecipeAndCuisinebyID
+  export async function getRecipeAndCuisinebyId(req, res) {
+    try {
+      //A variable that shows an id is required in the URL
+        const id = req.params.id;
+        //A variable that stores the returned data using our fetchRecipeAndCuisineById(id) function
+        const recipeAndCuisine = await fetchRecipeAndCuisineById(id);
+        //if it is not a recipe then return recipe not found use try/catch
+        if (!recipeAndCuisine) {
+               return res
+               .status(404)
+                 .json({ status: "fail", message: "Recipe not found" });
+               }
+               res.status(200).json({ status: "success", data: recipeAndCuisine });
+             } catch (error) {
+               res.status(500).json({ status: "error", message: error.message });
+            }
+           
+    }
