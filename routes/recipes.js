@@ -3,7 +3,8 @@ import { getRecipes,
     getRecipeById, 
     createRecipe,
     updateRecipeById, 
-    deleteRecipeById, 
+    deleteRecipeById,
+    getRecipeAndCuisinebyId
     } from "../controllers/recipes.js";
 import app from "../app.js";
 
@@ -14,5 +15,6 @@ router.get("/:id", getRecipeById);
 router.post("/", createRecipe);
 router.patch("/:id", updateRecipeById);
 router.delete("/:id", deleteRecipeById);
+router.get("/:id/cuisines", getRecipeAndCuisinebyId)
 
 export default router;
