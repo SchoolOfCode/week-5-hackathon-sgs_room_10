@@ -29,3 +29,18 @@ export async function removeRecipeById(id) {
      console.log(removeRecipe)
      return removeRecipe.rows;
 }
+
+//PLAN
+//After completing a GET request to find a recipe
+//The client needs to be able to complete a GET request that shows both the recipe and cusine name together
+
+//STEPS
+//create function to fetch recipe and cuisine name
+export async function fetchRecipeAndCuisineById(id) {
+     //Write a query that joins the recipes and cuisines table with the cuisine_id and recipe_id
+const recipeAndCusine = await pool.query(
+     "SELECT recipes.title, cuisines.cuisine FROM recipes INNER JOIN cuisines ON recipes.id = cuisines.id WHERE recipes.id = $1;", [id])
+     //Return recipe with cuisine name included in response with the recipe
+     return recipeAndCusine.rows[0];
+}
+     
