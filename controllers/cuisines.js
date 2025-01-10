@@ -3,6 +3,7 @@ import {
     fetchCuisineById,
     createNewCuisine,
     updateSpecificCuisine,
+    removeCuisineId
   } from "../models/cuisines.js";
   
   export async function getCuisines(req, res) {
@@ -58,3 +59,18 @@ import {
         res.status(500).json({status: "fail", message: error.message})
       }
     }
+
+
+    export async function deleteCuisineById(req,res){
+      try {
+      const id = req.params.id;
+      const deleted = await removeCuisineId(id);
+      if(!deleted) {
+        res.status(404).json({status: "fail",message: "Cuisine not found"})
+      }
+      res.status(204).json({status:"success", data: deleted})
+  } catch(error) {
+    res.status(500).json({status:"fail",message: error.message})
+  }
+
+  }

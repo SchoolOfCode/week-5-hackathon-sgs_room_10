@@ -19,3 +19,8 @@ export async function updateSpecificCuisine(id, cuisine) {
     const updated_cuisine = await pool.query("UPDATE cuisines SET cuisine = $1 WHERE id = $2 RETURNING *;",[cuisine, id]);
     return updated_cuisine.rows[0];
 }
+
+export async function removeCuisineId(id) {
+    const remove_cuisine = await pool.query("DELETE FROM cuisines WHERE id = $1 RETURNING *;",[id]);
+    return remove_cuisine
+}
